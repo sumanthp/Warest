@@ -12,4 +12,10 @@ public class AppConfig {
     // Server url for retreiving upcoming Events
     public static String URL_EVENTS = "http://warest.org/mobile_upcoming_events.php";
 
+    public static String URL_STUDENT_DETAILS = "http://warest.org/mobile_student_details.php";
+
+    public static String URL_FACULTY_DETAILS = "http://warest.org/mobile_faculty_details.php";
+    public static String URL_CORPORATE_DETAILS = "http://warest.org/mobile_corporate_details.php";
+    public static String URL_INSTITUE_DETAILS = "http://warest.org/mobile_institute_details.php";
+
 }

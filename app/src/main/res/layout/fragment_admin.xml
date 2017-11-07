@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sumanth.warest.FragmentAdmin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/view_contenders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Contenders"
+            android:padding="10dp"
+            android:background="@color/bootstrap_brand_info"
+            android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/add_event"
+        android:layout_below="@+id/view_contenders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="@color/bootstrap_brand_info"/>
+
+
+        <Button
+            android:layout_below="@+id/add_event"
+            android:id="@+id/add_workshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_workshop"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/bootstrap_brand_info"/>
+
+        <Button
+            android:layout_below="@+id/add_workshop"
+            android:id="@+id/add_conference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_conference"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/bootstrap_brand_info"/>
+
+        <Button
+            android:layout_below="@+id/add_conference"
+            android:id="@+id/add_webinar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_webinar"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/bootstrap_brand_info"/>
+
+        <Button
+            android:layout_below="@+id/add_workshop"
+            android:id="@+id/add_online_courses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_online_course"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/bootstrap_brand_info"/>
+
+        <!--<Button
+        android:id="@+id/edit_event"
+        android:layout_below="@+id/add_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_event"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="@color/bootstrap_brand_info"/>-->
+</RelativeLayout>
+
+</FrameLayout>

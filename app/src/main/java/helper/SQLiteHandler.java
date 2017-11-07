@@ -28,6 +28,10 @@ public class SQLiteHandler extends SQLiteOpenHelper{
     // Login table name
     private static final String TABLE_USER = "user";
     private static final String TABLE_UPCOMING_EVENTS = "upcoming_events";
+    private static final String TABLE_STUDENTS = "students";
+    private static final String TABLE_FACULTY = "faculty";
+    private static final String TABLE_CORPORATE  = "corporates";
+    private static final String TABLE_INSTITUTE = "institute";
 
     // Login Table Columns names
     private static final String KEY_ID = "id";
@@ -35,10 +39,25 @@ public class SQLiteHandler extends SQLiteOpenHelper{
     private static final String KEY_PASSWORD="password";
 
     //Upcoming events Table Columns names
-    private static final String KEY_SNO = "sno";
     private static final String KEY_DAY = "day";
     private static final String KEY_EVENTS = "events";
     private static final String KEY_DETAILS = "details";
+
+    //students table column names
+    private static final String KEY_STUDENT_NAME = "name";
+    private static final String KEY_STUDENT_EMAIL = "email";
+
+    //faculty table column names
+    private static final String KEY_FACULTY_NAME = "name";
+    private static final String KEY_FACULTY_EMAIL = "email";
+
+    //corporate table column names
+    private static final String KEY_CORPORATE_NAME = "name";
+    private static final String KEY_CORPORATE_EMAIL = "email";
+
+    //institute table column names
+    private static final String KEY_INSTITUE_NAME = "name";
+    private static final String KEY_INSTITUTE_EMAIL = "email";
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,16 +70,36 @@ public class SQLiteHandler extends SQLiteOpenHelper{
             + KEY_PASSWORD+ " TEXT NOT NULL)";
 
     private static final String CREATE_UPCOMING_EVENTS_TABLE="CREATE TABLE " + TABLE_UPCOMING_EVENTS + "("
-            + KEY_SNO + " TEXT NOT NULL,"
             + KEY_DAY + " TEXT NOT NULL,"
             + KEY_EVENTS + " TEXT NOT NULL,"
-            +KEY_DETAILS + " TEXT NOT NULL)";
+            + KEY_DETAILS + " TEXT NOT NULL)";
+
+    private static final String CREATE_STUDENT_TABLE = "CREATE TABLE "+TABLE_STUDENTS +"("
+            + KEY_STUDENT_NAME + " TEXT NOT NULL,"
+            + KEY_STUDENT_EMAIL + " TEXT NOT NULL)";
+
+    private static final String CREATE_FACULTY_TABLE = "CREATE TABLE "+TABLE_FACULTY +"("
+            + KEY_FACULTY_NAME + " TEXT NOT NULL,"
+            + KEY_FACULTY_EMAIL + " TEXT NOT NULL)";
+
+    private static final String CREATE_CORPORATE_TABLE = "CREATE TABLE "+TABLE_CORPORATE +"("
+            + KEY_CORPORATE_NAME + " TEXT NOT NULL,"
+            + KEY_CORPORATE_EMAIL + " TEXT NOT NULL)";
+
+    private static final String CREATE_INSTITUE_TABLE = "CREATE TABLE "+TABLE_INSTITUTE +"("
+            + KEY_INSTITUE_NAME + " TEXT NOT NULL,"
+            + KEY_INSTITUTE_EMAIL + " TEXT NOT NULL)";
+
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(CREATE_LOGIN_TABLE);
         db.execSQL(CREATE_UPCOMING_EVENTS_TABLE);
+        db.execSQL(CREATE_STUDENT_TABLE);
+        db.execSQL(CREATE_FACULTY_TABLE);
+        db.execSQL(CREATE_INSTITUE_TABLE);
+        db.execSQL(CREATE_CORPORATE_TABLE);
 
         Log.d(TAG, "Database tables created");
     }
@@ -71,6 +110,10 @@ public class SQLiteHandler extends SQLiteOpenHelper{
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_UPCOMING_EVENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FACULTY);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CORPORATE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_INSTITUTE);
         // Create tables again
         onCreate(db);
     }
@@ -91,14 +134,84 @@ public class SQLiteHandler extends SQLiteOpenHelper{
         Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
-    /**
-     * Storing upcoming events details in database
-     * */
-    public void addUpcomingEvents(String sno,String day,String events,String details) {
+    public void addStudents(String name,String email)
+    {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_SNO, sno); // UserName
+        values.put(KEY_STUDENT_NAME, name); // UserName
+        values.put(KEY_STUDENT_EMAIL,email);
+        // Inserting Row
+        long id = db.insert(TABLE_STUDENTS, null, values);
+        //db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
+
+    public void addStudent(String name,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_STUDENT_NAME, name); // UserName
+        values.put(KEY_STUDENT_EMAIL,email);
+        // Inserting Row
+        long id = db.insert(TABLE_STUDENTS, null, values);
+        //db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
+
+    public void addFaculty(String name,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FACULTY_NAME, name); // UserName
+        values.put(KEY_FACULTY_EMAIL,email);
+        // Inserting Row
+        long id = db.insert(TABLE_FACULTY, null, values);
+        //db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
+
+    public void addCorporate(String name,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_CORPORATE_NAME, name); // UserName
+        values.put(KEY_CORPORATE_EMAIL,email);
+        // Inserting Row
+        long id = db.insert(TABLE_CORPORATE, null, values);
+        //db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
+
+    public void addInstitute(String name,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_INSTITUE_NAME, name); // UserName
+        values.put(KEY_INSTITUTE_EMAIL,email);
+        // Inserting Row
+        long id = db.insert(TABLE_INSTITUTE, null, values);
+        //db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
+
+
+    /**
+     * Storing upcoming events details in database
+     * */
+    public void addUpcomingEvents(String day,String events,String details) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
         values.put(KEY_DAY,day);
         values.put(KEY_EVENTS,events);
         values.put(KEY_DETAILS,details);
@@ -173,6 +286,85 @@ public class SQLiteHandler extends SQLiteOpenHelper{
         return user;
     }
 
+    public HashMap<String, String> getStudentDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_STUDENTS;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            user.put("name", cursor.getString(1));
+            user.put("email",cursor.getString(2));
+        }
+        //cursor.close();
+        // db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
+
+        return user;
+    }
+
+    public HashMap<String, String> getFacultyDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_FACULTY;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            user.put("name", cursor.getString(1));
+            user.put("email",cursor.getString(2));
+        }
+        //cursor.close();
+        // db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
+
+        return user;
+    }
+
+    public HashMap<String, String> getInstituteDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_INSTITUTE;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            user.put("name", cursor.getString(1));
+            user.put("email",cursor.getString(2));
+        }
+        //cursor.close();
+        // db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
+
+        return user;
+    }
+
+    public HashMap<String, String> getCorporateDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_CORPORATE;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            user.put("name", cursor.getString(1));
+            user.put("email",cursor.getString(2));
+        }
+        //cursor.close();
+        // db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
+
+        return user;
+    }
 
     /**
      * Re crate database Delete all tables and create them again
@@ -191,6 +383,38 @@ public class SQLiteHandler extends SQLiteOpenHelper{
         db.delete(TABLE_UPCOMING_EVENTS, null, null);
         // db.close();
         Log.d(TAG, "Deleted all upcoming events info from sqlite");
+    }
+
+    public void deleteStudentDetails() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(TABLE_STUDENTS, null, null);
+        // db.close();
+        Log.d(TAG, "Deleted all students info from sqlite");
+    }
+
+    public void deleteFacultyDetails() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(TABLE_FACULTY, null, null);
+        // db.close();
+        Log.d(TAG, "Deleted all faculty info from sqlite");
+    }
+
+    public void deleteCorporateDetails() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(TABLE_CORPORATE, null, null);
+        // db.close();
+        Log.d(TAG, "Deleted all corporate info from sqlite");
+    }
+
+    public void deleteInstituteDetails() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(TABLE_INSTITUTE, null, null);
+        // db.close();
+        Log.d(TAG, "Deleted all institute info from sqlite");
     }
 
 

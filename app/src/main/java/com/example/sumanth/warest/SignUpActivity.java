@@ -206,7 +206,7 @@ public class SignUpActivity extends AppCompatActivity {
                             String events = upcoming_events.getString("events");
                             String details = upcoming_events.getString("details");
                             // Inserting row in users table
-                            db.addUpcomingEvents(sno, day, events, details);
+                            db.addUpcomingEvents(day, events, details);
                         }
                     } else {
                         // Error in login. Get the error message

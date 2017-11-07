@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sumanth.warest.FragmentViewUsers">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/view_students"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Student Users"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/bootstrap_brand_info"/>
+        <Button
+            android:text="View Faculty Users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_students"
+            android:id="@+id/view_faculty"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@color/bootstrap_brand_info"/>
+        <Button
+            android:text="View Corporate Users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_faculty"
+            android:id="@+id/view_corporate"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@color/bootstrap_brand_info"/>
+        <Button
+            android:text="View Institute Users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_corporate"
+            android:id="@+id/view_institute"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@color/bootstrap_brand_info"/>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

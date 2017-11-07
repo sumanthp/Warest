@@ -46,4 +46,29 @@
     <string name="values_title">Values</string>
     <string name="title_fullform">Wisdom Association of Research in Engineering, Science and Technology</string>
     <string name="events">%s\n\n%s\n\n%s</string>
+    <string name="add_event">Add Event</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="event_name">Enter Event Name</string>
+    <string name="event_details">Enter Event details</string>
+    <string name="event_date">Enter date</string>
+    <string name="workshop_name">Enter Workshop Name</string>
+    <string name="workshop_details">Enter Workshop details</string>
+    <string name="workshop_date">Enter date</string>
+    <string name="conference_name">Enter Event Name</string>
+    <string name="conference_details">Enter Event details</string>
+    <string name="conference_date">Enter date</string>
+    <string name="webinar_name">Enter Webinar Name</string>
+    <string name="webinar_details">Enter Webinar details</string>
+    <string name="webinar_date">Enter date</string>
+    <string name="online_course_name">Enter Online course Name</string>
+    <string name="online_course_details">Enter Online course details</string>
+    <string name="online_course_date">Enter date</string>
+    <string name="submit_event">Add</string>
+    <string name="add_workshop">Add Workshop</string>
+    <string name="add_conference">Add Conference</string>
+    <string name="add_webinar">Add Webinar</string>
+    <string name="add_online_course">Add Online Course</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
 </resources>
